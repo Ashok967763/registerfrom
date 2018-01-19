@@ -1,0 +1,175 @@
+
+  <!-- <div [hidden]="submitted"> -->
+    <h1>Business Form</h1>
+    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+        
+      <div class="form-group">
+        <label for="entityname"> Entity Name</label>
+        <input type="text" class="form-control" id="entityname" placeholder="Enter Name"
+               required
+               [(ngModel)]="enter" name="entityname"
+               #entityname="ngModel">
+        <!-- <div [hidden]=" entityname.valid||entityname.pristine"
+             class="alert alert-danger">
+          Entity Name is required
+        </div> -->
+      </div>
+      <div class="form-group">
+          <label for="power">Enity Type</label> 
+          <select class="form-control" id="power"
+                  required
+                  [(ngModel)]="model.power" name="power"
+                  #power="ngModel">
+            <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+          </select>
+          <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
+            Entity Type is required
+          </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="firstname"> First Name</label>
+            <input type="text" class="form-control" id="Firstname" placeholder="First Name"
+                   required
+                   [(ngModel)]="enter1" name="firstname"
+                   #firstname="ngModel">
+            <div [hidden]="firstname.valid || firstname.pristine"
+                 class="alert alert-danger">
+              FirstName is required
+            </div>
+          </div>
+          <div class="form-group">
+              <label for="lastname"> LastName</label>
+              <input type="text" class="form-control" id="Lastname" placeholder="Last Name"
+                     required
+                     [(ngModel)]="enter2" name="lastname"
+                     #lastname="ngModel">
+              <div [hidden]="lastname.valid || lastname.pristine"
+                   class="alert alert-danger">
+                LastName is required
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="Address" placeholder="Address line 1"
+                       required
+                       [(ngModel)]="enter3" name="address"
+                       #address="ngModel">
+                <div [hidden]="address.valid || address.pristine"
+                     class="alert alert-danger">
+                  Address is required
+                </div>
+              </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="Address" placeholder="Address line 2">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="Address" placeholder="Address line 3">
+            </div>
+            <div class="form-group">
+                <label for="city"> City</label>
+                <input type="text" class="form-control" id="City" placeholder="Enter city"
+                       required
+                       [(ngModel)]="enter4" name="city"
+                       #city="ngModel">
+                <div [hidden]="city.valid || city.pristine"
+                     class="alert alert-danger">
+                  City is required
+                </div>
+              </div>
+              <div class="form-group">
+                  <label for="pin"> Pin</label>
+                  <input type="number" class="form-control" id="Pin" placeholder="Enter Pin"
+                         required
+                         [(ngModel)]="enter5" name="pin"
+                         #pin="ngModel">
+                  <div [hidden]="pin.valid || pin.pristine"
+                       class="alert alert-danger">
+                    Pin is required
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="state">Enity Type</label>
+                    <select class="form-control" id="power"
+                            required
+                            [(ngModel)]="model.state" name="state"
+                            #state="ngModel">
+                      <option *ngFor="let state of states" [value]="state">{{state}}</option>
+                    </select>
+                    <div [hidden]="state.valid || state.pristine" class="alert alert-danger">
+                      State is required
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="mobile"> Mobile</label>
+                      <input type="number" class="form-control" id="mobile" placeholder="Enter mobile num"
+                             required
+                             [(ngModel)]="enter6" name="mobile"
+                             #mobile="ngModel">
+                      <div [hidden]="mobile.valid || mobile.pristine"
+                           class="alert alert-danger">
+                        FirstName is required
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="gst"> GST NO</label>
+                        <input type="text" class="form-control" id="gst" placeholder="Enter GST NO"
+                               required
+                               [(ngModel)]="enter7" name="gst"
+                               #gst="ngModel">
+                        <div [hidden]="gst.valid || gst.pristine"
+                             class="alert alert-danger">
+                          GST no is required
+                        </div>
+                      </div>
+
+
+      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Save</button>
+      <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">Cancel</button>
+    </form>
+  <!-- </div> -->
+
+  <!-- <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Name</div>
+      <div class="col-xs-9  pull-left">{{ enter }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Entity type</div>
+        <div class="col-xs-9 pull-left">{{ model.power }}</div>
+      </div>
+    <div class="row">
+        <div class="col-xs-3">FirstName</div>
+        <div class="col-xs-9  pull-left">{{ enter1 }}</div>
+      </div>
+      <div class="row">
+          <div class="col-xs-3">Lastname</div>
+          <div class="col-xs-9  pull-left">{{ enter2 }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">city</div>
+            <div class="col-xs-9  pull-left">{{ enter3 }}</div>
+          </div>
+          <div class="row">
+              <div class="col-xs-3">pin</div>
+              <div class="col-xs-9  pull-left">{{ enter5 }}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3">State</div>
+                <div class="col-xs-9 pull-left">{{ model.state }}</div>
+              </div>
+              <div class="row">
+                  <div class="col-xs-3">Mobile</div>
+                  <div class="col-xs-9  pull-left">{{ enter6 }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3">GST</div>
+                    <div class="col-xs-9  pull-left">{{ enter7 }}</div>
+                  </div>
+    
+    
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>
+ -->
